@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 21:34:30 by bberkass          #+#    #+#             */
-/*   Updated: 2021/11/19 14:00:42 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/11/19 22:23:06 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,18 @@ char	*get_line(char *s)
 
 	i = 0;
 	// get line length 
-	while(s[i] && s[i] != '\n')
+	while (s[i] && s[i] != '\n')
 		i++;
 	line = (char *)malloc(sizeof(char) * (i + 2));
-	if(!line)
+	if (!line)
 		return (NULL);
 	i = 0;
-	while(s[i] && s[i] != '\n')
+	while (s[i] && s[i] != '\n')
 	{
 		line[i] = s[i];
 		i++;
 	}
-	if(s[i] == '\n')
+	if (s[i] == '\n')
 		line[i++] = '\n';
 	line[i] = '\0';
 	return (line);

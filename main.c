@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 21:34:43 by bberkass          #+#    #+#             */
-/*   Updated: 2021/11/19 13:24:50 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/11/19 21:26:41 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main()
 {
-	int fd = open("41_with_nl", O_RDWR | O_RDONLY);
+	int fd = open("43_with_nl", O_RDWR | O_RDONLY);
 	//char *s = "this is a line \n this is the rest \n i know another line lines  ! \n";
 	//printf("line => %s \n", get_line(s));	
 	//char *rest = get_rest(s);

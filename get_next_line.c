@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 21:32:34 by bberkass          #+#    #+#             */
-/*   Updated: 2021/11/19 14:06:20 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/11/19 22:42:46 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ int	nl_in(char *s)
 	return (0);
 }
 
+int	check_rest(char *rest)
+{
+
+}
+
 char	*get_next_line(int fd)
 {
 	char		*line;
@@ -37,9 +42,10 @@ char	*get_next_line(int fd)
 	char		*tmp;
 
 	line = NULL;
-	rest = NULL;
+	//rest = NULL;
 	readed = 1;
 	buff = (char *)calloc(sizeof(char), BUFFER_SIZE + 1);
+	//printf("rest => %s \n", rest);
 	if(rest && nl_in(rest))
 	{
 		line = get_line(rest);
