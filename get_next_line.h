@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 21:33:03 by bberkass          #+#    #+#             */
-/*   Updated: 2021/11/18 22:55:29 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/11/19 01:04:59 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@
 char	*get_next_line(int fd);
 char	*get_line(char *s);
 char	*get_rest(char *s);
-
+char	*ft_strdup(const char *s1);
+char	*ft_strjoin(char const *s1, char const *s2);
+int		ft_strlen(const char *s);
 #endif
