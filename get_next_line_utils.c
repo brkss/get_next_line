@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 21:34:30 by bberkass          #+#    #+#             */
-/*   Updated: 2021/11/20 03:24:40 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/11/20 03:26:52 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,58 +42,6 @@ char	*ft_strdup(const char *s1)
 	}
 	dup[i] = '\0';
 	return (dup);
-}
-
-char	*get_line(char *s)
-{
-	char	*line;
-	int		i;
-
-	i = 0;
-	while (s[i] && s[i] != '\n')
-		i++;
-	line = (char *)malloc(sizeof(char) * (i + 2));
-	if (!line)
-		return (NULL);
-	i = 0;
-	while (s[i] && s[i] != '\n')
-	{
-		line[i] = s[i];
-		i++;
-	}
-	if (s[i] == '\n')
-		line[i++] = '\n';
-	line[i] = '\0';
-	return (line);
-}
-
-char	*get_rest(char *s)
-{
-	char	*rest;
-	int		i;
-	int		s_len;
-	int		j;
-
-	j = 0;
-	i = 0;
-	while (s[i] && s[i] != '\n')
-		i++;
-	if (s[i] && s[i] == '\n')
-		i++;
-	if (!s[i])
-	{
-		free(s);
-		return (NULL);
-	}
-	s_len = ft_strlen(&s[i]) + 1;
-	rest = (char *)malloc(sizeof(char) * s_len);
-	if (!rest)
-		return (NULL);
-	while (s[i])
-		rest[j++] = s[i++];
-	rest[j] = '\0';
-	free(s);
-	return (rest);
 }
 
 char	*ft_strcat(char *dest, const char *s1, const char *s2)
