@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 21:34:30 by bberkass          #+#    #+#             */
-/*   Updated: 2021/11/20 01:18:55 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/11/20 02:25:33 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int		ft_strlen(const char *s)
 	int	l;
 
 	l = 0;
+	if(!s || s == 0)
+		return (0);
 	while(s[l])
 		l++;
 	return (l);
@@ -73,7 +75,7 @@ char	*get_rest(char *s)
 	int		s_len;
 	int		j;
 
-	if(s == 0)
+	if(s == 0 || !s)
 		return (NULL);
 	j = 0;
 	i = 0;
@@ -81,6 +83,11 @@ char	*get_rest(char *s)
 		i++;
 	if (s[i] && s[i] == '\n')
 		i++;
+	if(!s[i])
+	{
+		free(s);
+		return NULL;
+	}
 	s_len = ft_strlen(&s[i]) + 1;
 	rest = (char *)malloc(sizeof(char) * s_len);
 	if(!rest)

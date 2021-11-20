@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 21:32:34 by bberkass          #+#    #+#             */
-/*   Updated: 2021/11/20 01:18:04 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/11/20 03:02:27 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ char	*get_next_line(int fd)
 	int			readed;
 
 	line = NULL;
-	rest = NULL;
 	readed = 1;
 	buff = (char *)calloc(sizeof(char), BUFFER_SIZE + 1);
 	while(!nl_in(rest) && readed > 0)
@@ -61,7 +60,7 @@ char	*get_next_line(int fd)
 	{
 		line = get_line(rest);
 		rest = get_rest(rest);
-		if(ft_strlen(rest) == 0 || readed == 0)
+		if(!rest)
 			free(rest);
 	}
 	return (line);
