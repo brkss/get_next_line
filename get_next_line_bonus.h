@@ -6,12 +6,12 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 21:33:03 by bberkass          #+#    #+#             */
-/*   Updated: 2021/11/20 13:38:09 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/11/20 20:30:57 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # include <stdlib.h>
 # include <stdio.h>
