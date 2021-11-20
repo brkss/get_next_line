@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 21:32:34 by bberkass          #+#    #+#             */
-/*   Updated: 2021/11/20 03:02:27 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/11/20 03:07:24 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*get_next_line(int fd)
 
 	line = NULL;
 	readed = 1;
-	buff = (char *)calloc(sizeof(char), BUFFER_SIZE + 1);
+	buff = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
 	while(!nl_in(rest) && readed > 0)
 	{
 		readed = read(fd, buff, BUFFER_SIZE);

@@ -6,20 +6,20 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 21:34:30 by bberkass          #+#    #+#             */
-/*   Updated: 2021/11/20 02:25:33 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/11/20 03:24:40 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int		ft_strlen(const char *s)
+int	ft_strlen(const char *s)
 {
 	int	l;
 
 	l = 0;
-	if(!s || s == 0)
+	if (!s || s == 0)
 		return (0);
-	while(s[l])
+	while (s[l])
 		l++;
 	return (l);
 }
@@ -50,7 +50,6 @@ char	*get_line(char *s)
 	int		i;
 
 	i = 0;
-	// get line length 
 	while (s[i] && s[i] != '\n')
 		i++;
 	line = (char *)malloc(sizeof(char) * (i + 2));
@@ -75,29 +74,23 @@ char	*get_rest(char *s)
 	int		s_len;
 	int		j;
 
-	if(s == 0 || !s)
-		return (NULL);
 	j = 0;
 	i = 0;
 	while (s[i] && s[i] != '\n')
 		i++;
 	if (s[i] && s[i] == '\n')
 		i++;
-	if(!s[i])
+	if (!s[i])
 	{
 		free(s);
-		return NULL;
+		return (NULL);
 	}
 	s_len = ft_strlen(&s[i]) + 1;
 	rest = (char *)malloc(sizeof(char) * s_len);
-	if(!rest)
+	if (!rest)
 		return (NULL);
-	while(s[i])
-	{
-		rest[j] = s[i];
-		i++;
-		j++;
-	}
+	while (s[i])
+		rest[j++] = s[i++];
 	rest[j] = '\0';
 	free(s);
 	return (rest);
@@ -135,7 +128,7 @@ char	*ft_strjoin(char *s1, char const *s2)
 
 	if (!s1 && !s2)
 		return (NULL);
-	if(!s1)
+	if (!s1)
 		return (ft_strdup(s2));
 	s1_length = ft_strlen(s1);
 	s2_length = ft_strlen(s2);
