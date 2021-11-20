@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 21:32:34 by bberkass          #+#    #+#             */
-/*   Updated: 2021/11/19 22:42:46 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/11/20 01:18:04 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	nl_in(char *s)
 {
 	int i;
 
-	if(!s)
+	if(s == 0)
 		return (0);
 	i = 0;
 	while(s[i])
@@ -28,34 +28,18 @@ int	nl_in(char *s)
 	return (0);
 }
 
-int	check_rest(char *rest)
-{
-
-}
-
 char	*get_next_line(int fd)
 {
 	char		*line;
 	char		*buff;
 	static char	*rest;
 	int			readed;
-	char		*tmp;
 
 	line = NULL;
-	//rest = NULL;
+	rest = NULL;
 	readed = 1;
 	buff = (char *)calloc(sizeof(char), BUFFER_SIZE + 1);
-	//printf("rest => %s \n", rest);
-	if(rest && nl_in(rest))
-	{
-		line = get_line(rest);
-		tmp = rest;
-		rest = get_rest(rest);
-		free(tmp);
-		free(buff);
-		return (line);
-	}
-	while(readed > 0)
+	while(!nl_in(rest) && readed > 0)
 	{
 		readed = read(fd, buff, BUFFER_SIZE);
 		if(readed == -1)
@@ -67,9 +51,7 @@ char	*get_next_line(int fd)
 		else if(readed > 0)
 		{
 			buff[readed] = '\0';
-			tmp = rest;
 			rest = ft_strjoin(rest, buff);
-			free(tmp);
 			if(nl_in(rest))
 				break;
 		}
@@ -78,9 +60,7 @@ char	*get_next_line(int fd)
 	if(rest)
 	{
 		line = get_line(rest);
-		tmp = rest;
 		rest = get_rest(rest);
-		free(tmp);
 		if(ft_strlen(rest) == 0 || readed == 0)
 			free(rest);
 	}

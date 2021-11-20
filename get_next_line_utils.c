@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 21:34:30 by bberkass          #+#    #+#             */
-/*   Updated: 2021/11/19 22:23:06 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/11/20 01:18:55 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ char	*get_rest(char *s)
 	int		s_len;
 	int		j;
 
+	if(s == 0)
+		return (NULL);
 	j = 0;
 	i = 0;
 	while (s[i] && s[i] != '\n')
@@ -90,6 +92,7 @@ char	*get_rest(char *s)
 		j++;
 	}
 	rest[j] = '\0';
+	free(s);
 	return (rest);
 }
 
@@ -117,14 +120,14 @@ char	*ft_strcat(char *dest, const char *s1, const char *s2)
 	return (dest);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char const *s2)
 {
 	char	*joined;
 	int		s1_length;
 	int		s2_length;
 
 	if (!s1 && !s2)
-		return (0);
+		return (NULL);
 	if(!s1)
 		return (ft_strdup(s2));
 	s1_length = ft_strlen(s1);
@@ -135,5 +138,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!joined)
 		return (0);
 	joined = ft_strcat(joined, s1, s2);
+	free(s1);
 	return (joined);
 }
