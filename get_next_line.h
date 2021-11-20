@@ -6,17 +6,17 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 21:33:03 by bberkass          #+#    #+#             */
-/*   Updated: 2021/11/20 01:00:44 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/11/20 13:34:52 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GNL_H
-# define GNL_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <fcntl.h>
 
 char	*get_next_line(int fd);
 char	*get_line(char *s);
