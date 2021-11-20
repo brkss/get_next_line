@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 21:32:34 by bberkass          #+#    #+#             */
-/*   Updated: 2021/11/20 13:29:58 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/11/20 23:05:11 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,8 @@ char	*get_next_line(int fd)
 	static char	*rest;
 
 	line = NULL;
+	if (fd < 0)
+		return (NULL);
 	if (!proccess_file(fd, &rest))
 		return (NULL);
 	if (rest)

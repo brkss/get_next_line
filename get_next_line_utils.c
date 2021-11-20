@@ -6,7 +6,7 @@
 /*   By: bberkass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 21:34:30 by bberkass          #+#    #+#             */
-/*   Updated: 2021/11/20 03:26:52 by bberkass         ###   ########.fr       */
+/*   Updated: 2021/11/20 23:14:13 by bberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ int	ft_strlen(const char *s)
 	int	l;
 
 	l = 0;
-	if (!s || s == 0)
-		return (0);
 	while (s[l])
 		l++;
 	return (l);
@@ -81,8 +79,6 @@ char	*ft_strjoin(char *s1, char const *s2)
 	s1_length = ft_strlen(s1);
 	s2_length = ft_strlen(s2);
 	joined = (char *)malloc((s1_length + s2_length + 1) * sizeof(char));
-	if (!joined)
-		return (0);
 	if (!joined)
 		return (0);
 	joined = ft_strcat(joined, s1, s2);
